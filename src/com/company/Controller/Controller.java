@@ -13,9 +13,13 @@ public class Controller extends PassengerElevator implements controllerInterface
     }
 
     @Override
-    public void getElevator() {
-        System.out.println("Лифт спускается с "+ status + " єтажа");
-        status = 0;
+    public void getElevator(int currentFloor) {
+        if(status == currentFloor) {
+            System.out.println("Лифт находится на вашем этаже");
+        }
+        else {
+            System.out.println("Лифт едет с "+ status + " єтажа");
+        }
     }
 
     @Override
