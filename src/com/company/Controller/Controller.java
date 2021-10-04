@@ -20,6 +20,7 @@ public class Controller extends PassengerElevator implements controllerInterface
         else {
             System.out.println("Лифт едет с "+ status + " єтажа");
         }
+        status = currentFloor;
     }
 
     @Override
