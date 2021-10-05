@@ -6,11 +6,7 @@ import com.company.Interface.controllerInterface;
 public class Controller extends PassengerElevator implements controllerInterface {
     PassengerElevator passengerElevator = new PassengerElevator();
     private int status = 0;
-    private int weight;
-
-    public Controller(int weight) {
-        this.weight = weight;
-    }
+    
 
     @Override
     public void getElevator(int currentFloor) {
