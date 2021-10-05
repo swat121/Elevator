@@ -5,18 +5,33 @@ import com.company.Interface.controllerInterface;
 
 public class Controller extends PassengerElevator implements controllerInterface {
     PassengerElevator passengerElevator = new PassengerElevator();
-    private int status = 0;
-    
+     int status = 1;
 
     @Override
-    public void getElevator(int currentFloor) {
+    public void getElevator(int currentFloor) throws InterruptedException {
+        System.out.println("status2 "+ status);
         if(status == currentFloor) {
             System.out.println("Лифт находится на вашем этаже");
         }
         else {
-            System.out.println("Лифт едет с "+ status + " єтажа");
+            if(status > currentFloor){
+                while (status != currentFloor){
+                    System.out.println("Лифт спускается с "+ status + " этажа");
+                    Thread.sleep(500);
+                    status--;
+                }
+            }
+            else {
+                if(status < currentFloor) {
+                    while (status != currentFloor) {
+                        System.out.println("Лифт поднимается с " + status + " этажа");
+                        Thread.sleep(500);
+                        status++;
+                    }
+                }
+            }
+            System.out.println("Лифт приехал "+ status);
         }
-        status = currentFloor;
     }
 
     @Override
@@ -30,15 +45,24 @@ public class Controller extends PassengerElevator implements controllerInterface
     }
 
     @Override
-    public void runElevator(int floorNumber) {
+    public void runElevator(int floorNumber) throws InterruptedException {
         if(floorNumber>status){
-            passengerElevator.goUp();
+            while (status != floorNumber){
+                passengerElevator.goUp();
+                status++;
+                Thread.sleep(500);
+            }
+
         } else {
             if (floorNumber<status){
-                passengerElevator.goDown();
+                while (status != floorNumber) {
+                    passengerElevator.goDown();
+                    status--;
+                    Thread.sleep(500);
+                }
             }
         }
-        status = floorNumber;
+        System.out.println("status "+ status);
     }
 
 }
