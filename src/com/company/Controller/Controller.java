@@ -9,7 +9,6 @@ public class Controller extends PassengerElevator implements controllerInterface
 
     @Override
     public void getElevator(int currentFloor) throws InterruptedException {
-        System.out.println("status2 "+ status);
         if(status == currentFloor) {
             System.out.println("Лифт находится на вашем этаже");
         }
@@ -28,7 +27,7 @@ public class Controller extends PassengerElevator implements controllerInterface
                     status++;
                 }
             }
-            System.out.println("Лифт приехал "+ status);
+            System.out.println("Лифт приехал на "+ status + " этаж");
         }
     }
 
@@ -60,7 +59,6 @@ public class Controller extends PassengerElevator implements controllerInterface
                 }
             }
         }
-        System.out.println("status "+ status);
     }
 
 }
