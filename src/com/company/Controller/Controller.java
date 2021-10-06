@@ -21,13 +21,11 @@ public class Controller extends PassengerElevator implements controllerInterface
                     status--;
                 }
             }
-            else {
-                if(status < currentFloor) {
-                    while (status != currentFloor) {
-                        System.out.println("Лифт поднимается с " + status + " этажа");
-                        Thread.sleep(500);
-                        status++;
-                    }
+            if(status < currentFloor) {
+                while (status != currentFloor) {
+                    System.out.println("Лифт поднимается с " + status + " этажа");
+                    Thread.sleep(500);
+                    status++;
                 }
             }
             System.out.println("Лифт приехал "+ status);
