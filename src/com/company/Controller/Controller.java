@@ -4,8 +4,8 @@ import com.company.ElevatorClass.PassengerElevator;
 import com.company.Interface.controllerInterface;
 
 public class Controller extends PassengerElevator implements controllerInterface {
-    PassengerElevator passengerElevator = new PassengerElevator();
-     int status = 1;
+    private PassengerElevator passengerElevator = new PassengerElevator();
+    private int status = 1;
 
     @Override
     public void getElevator(int currentFloor) throws InterruptedException {
